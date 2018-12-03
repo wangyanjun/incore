@@ -53,12 +53,12 @@
         UInt64,
 
         /// <summary>
-        /// 浮点数
+        /// float
         /// </summary>
         Single,
 
         /// <summary>
-        /// 双精度浮点数
+        /// double
         /// </summary>
         Double
     }
