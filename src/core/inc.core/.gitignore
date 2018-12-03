@@ -1,3 +1,5 @@
 ﻿/.vs
 /inc.core/bin
 /inc.core/obj
+/inc.protocols.finsnet/bin
+/inc.protocols.finsnet/obj
