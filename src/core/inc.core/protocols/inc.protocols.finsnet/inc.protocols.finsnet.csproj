@@ -4,8 +4,16 @@
     <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+
   <ItemGroup>
     <Folder Include="tcp\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\inc.core\inc.core.csproj" />
   </ItemGroup>
 
 </Project>
