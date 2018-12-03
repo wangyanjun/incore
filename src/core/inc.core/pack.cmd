@@ -1,0 +1,2 @@
+dotnet pack ./inc.core/inc.core.csproj --include-symbols -c release --output ../build/inc.core
+dotnet pack ./protocols/inc.protocols.finsnet/inc.protocols.finsnet.csproj --include-symbols -c release --output ../../build/inc.protocols.finsnet
