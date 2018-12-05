@@ -4,6 +4,27 @@ namespace inc.core
 {
     public static class BinaryHelper
     {
+        public static unsafe void SwapHighLow(byte* p, int index, int count)
+        {
+            byte mid = 0;
+            for (int i = 0; i < count - 1; i += 2)
+            {
+                mid = p[i];
+                p[i] = p[i + 1];
+                p[i + 1] = mid;
+            }
+        }
+
+        public static unsafe void SwapHighLow(this byte[] content, int index, int count)
+        {
+            fixed (byte* p = content)
+            {
+                SwapHighLow(p, index, count);
+            }
+        }
+
+        public static unsafe void SwapHighLow(this byte[] content) => SwapHighLow(content, 0, content.Length);
+
         public static unsafe T[] GetArray<T>(this byte[] content, int size, Func<IntPtr, T> converter)
          where T : struct
         {
