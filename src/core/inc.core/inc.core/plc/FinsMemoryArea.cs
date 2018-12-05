@@ -1,4 +1,4 @@
-﻿namespace inc.protocols.finsnet
+﻿namespace inc.core
 {
     public enum FinsMemoryArea
     {

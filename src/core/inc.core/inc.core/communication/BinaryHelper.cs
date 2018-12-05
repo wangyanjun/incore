@@ -1,4 +1,5 @@
-﻿using System;
+﻿using inc.core.plc;
+using System;
 
 namespace inc.core
 {
@@ -82,6 +83,62 @@ namespace inc.core
                 result = new T[0];
             }
 
+            return result;
+        }
+
+        public static int ByteSize(this DataType type)
+        {
+            switch (type)
+            {
+                case DataType.Bit:
+                case DataType.Byte:
+                case DataType.BooleanBytes:
+                    {
+                        return 1;
+                    }
+
+                case DataType.Int16:
+                case DataType.UInt16:
+                case DataType.UInt16Bytes:
+                    {
+                        return 2;
+                    }
+
+                case DataType.Int32:
+                case DataType.UInt32:
+                case DataType.Single:
+                    {
+                        return 4;
+                    }
+
+                case DataType.Int64:
+                case DataType.UInt64:
+                case DataType.Double:
+                    {
+                        return 8;
+                    }
+
+                default:
+                    {
+                        throw new NotSupportedException("");
+                    }
+            }
+        }
+
+        public static int SizeIn(this DataType type, FinsMemoryArea memory)
+        {
+            var bytes = ByteSize(type);
+            var x = 1;
+            switch (memory)
+            {
+                case FinsMemoryArea.DM:
+                    {
+                        x = 2;
+                        break;
+                    }
+            }
+
+            var result = bytes / x;
             return result;
         }
     }
