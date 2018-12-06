@@ -3,10 +3,15 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <Authors>Yanjun Wang</Authors>
-    <Description />
+    <Description>A implementation for EtherNet/IP protocol.</Description>
     <PackageLicenseUrl>https://github.com/wangyanjun/incore/blob/master/LICENSE</PackageLicenseUrl>
     <PackageProjectUrl>https://github.com/wangyanjun/incore</PackageProjectUrl>
     <Version>1.0.1</Version>
+    <PackageTags>plc,protocol,ethernet/ip,eip</PackageTags>
   </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\inc.core\inc.core.csproj" />
+  </ItemGroup>
 
 </Project>
