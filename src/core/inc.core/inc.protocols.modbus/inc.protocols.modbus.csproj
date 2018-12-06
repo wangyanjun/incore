@@ -5,6 +5,7 @@
     <Authors>Yanjun Wang</Authors>
     <PackageLicenseUrl>https://github.com/wangyanjun/incore/blob/master/LICENSE</PackageLicenseUrl>
     <PackageProjectUrl>https://github.com/wangyanjun/incore</PackageProjectUrl>
+    <Version>1.0.1</Version>
   </PropertyGroup>
 
   <ItemGroup>

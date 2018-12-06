@@ -6,11 +6,12 @@
     <Description>Client for omron plc.</Description>
     <PackageProjectUrl>https://github.com/wangyanjun/incore</PackageProjectUrl>
     <PackageLicenseUrl>https://github.com/wangyanjun/incore/blob/master/LICENSE</PackageLicenseUrl>
+    <Version>1.0.1</Version>
   </PropertyGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\inc.core\inc.core.csproj" />
-    <ProjectReference Include="..\protocols\inc.protocols.finsnet\inc.protocols.finsnet.csproj" />
+    <ProjectReference Include="..\inc.protocols.finsnet\inc.protocols.finsnet.csproj" />
   </ItemGroup>
 
 </Project>
