@@ -3,14 +3,12 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <Authors>Yanjun Wang</Authors>
-    <Description>Client for omron plc.</Description>
-    <PackageProjectUrl>https://github.com/wangyanjun/incore</PackageProjectUrl>
     <PackageLicenseUrl>https://github.com/wangyanjun/incore/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/wangyanjun/incore</PackageProjectUrl>
   </PropertyGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\inc.core\inc.core.csproj" />
-    <ProjectReference Include="..\protocols\inc.protocols.finsnet\inc.protocols.finsnet.csproj" />
   </ItemGroup>
 
 </Project>

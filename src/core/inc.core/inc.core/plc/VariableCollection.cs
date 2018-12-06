@@ -53,7 +53,7 @@ namespace inc.core.plc
         /// </summary>
         /// <param name="item"></param>
         /// <param name="plc"></param>
-        public void Add(VariableItem item, PLCDevice plc)
+        public void Add(VariableItem item, PLCClient plc)
         {
             if (item == null) throw new ArgumentNullException(nameof(item));
             if (plc == null) throw new ArgumentNullException(nameof(plc));

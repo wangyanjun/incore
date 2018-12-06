@@ -1,4 +1,5 @@
-﻿using System;
+﻿using inc.core.communication;
+using System;
 
 namespace inc.core.plc
 {
@@ -7,6 +8,16 @@ namespace inc.core.plc
     /// </summary>
     public interface IPLCCommunicator : IDisposable
     {
+        /// <summary>
+        /// Get transport media type
+        /// </summary>
+        TransportMedia TransportMedia { get; }
+
+        /// <summary>
+        /// Get protocol family
+        /// </summary>
+        ProtocolFamily ProtocolFamily { get; }
+
         /// <summary>
         /// 获取副本
         /// </summary>

@@ -5,6 +5,8 @@
     <Authors>Yanjun wang</Authors>
     <PackageProjectUrl>https://github.com/wangyanjun/incore</PackageProjectUrl>
     <Version>1.0.1</Version>
+    <PackageLicenseUrl>https://github.com/wangyanjun/incore/blob/master/LICENSE</PackageLicenseUrl>
+    <Description>The core library for industrial control.</Description>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">

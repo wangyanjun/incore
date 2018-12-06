@@ -7,7 +7,7 @@ namespace inc.core.plc
     /// <summary>
     /// PLC设备
     /// </summary>
-    public class PLCDevice : IDisposable
+    public class PLCClient : IDisposable
     {
         private readonly SortedDictionary<string, ReadLoop> _specialCommunicators
             = new SortedDictionary<string, ReadLoop>(StringComparer.OrdinalIgnoreCase);
@@ -533,7 +533,7 @@ namespace inc.core.plc
 
             public string ThreadName { get; private set; }
 
-            public ReadLoop(PLCDevice pLCDevice, IPLCCommunicator comm, string thread)
+            public ReadLoop(PLCClient pLCDevice, IPLCCommunicator comm, string thread)
             {
                 PLC = pLCDevice;
                 Communicator = comm;
@@ -597,7 +597,7 @@ namespace inc.core.plc
                 }
             }
 
-            public PLCDevice PLC { get; private set; }
+            public PLCClient PLC { get; private set; }
 
             public VariableCollection Variables { get; private set; } = new VariableCollection();
 

@@ -163,7 +163,7 @@ namespace inc.core.plc
         /// <summary>
         /// 获取PLC设备
         /// </summary>
-        public PLCDevice PLC { get; private set; }
+        public PLCClient PLC { get; private set; }
 
         /// <summary>
         /// 获取变量项目
@@ -175,7 +175,7 @@ namespace inc.core.plc
         /// </summary>
         /// <param name="item">变量项目</param>
         /// <param name="plc">PLC设备</param>
-        public Variable(VariableItem item, PLCDevice plc)
+        public Variable(VariableItem item, PLCClient plc)
         {
             Item = item;
             PLC = plc;

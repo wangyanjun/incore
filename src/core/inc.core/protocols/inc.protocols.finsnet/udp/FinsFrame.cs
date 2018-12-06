@@ -35,7 +35,6 @@ namespace inc.protocols.finsnet
                 DA2 = content[5];
                 SNA = content[6];
                 SA1 = content[7];
-
                 SA2 = content[8];
                 SID = content[9];
                 MRC = content[10];

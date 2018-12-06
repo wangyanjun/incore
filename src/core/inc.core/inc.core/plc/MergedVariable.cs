@@ -18,12 +18,12 @@ namespace inc.core.plc
 
         public bool IsEmpty => _variables.Count == 0;
 
-        public MergedVariable(PLCDevice plc, string name) : base(new VariableItem(), plc)
+        public MergedVariable(PLCClient plc, string name) : base(new VariableItem(), plc)
         {
             Item.Name = name;
         }
 
-        public MergedVariable(VariableItem item, PLCDevice plc) : base(item, plc)
+        public MergedVariable(VariableItem item, PLCClient plc) : base(item, plc)
         {
         }
 

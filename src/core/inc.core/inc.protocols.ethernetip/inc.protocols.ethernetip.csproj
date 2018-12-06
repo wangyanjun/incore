@@ -1,0 +1,11 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <Authors>Yanjun Wang</Authors>
+    <Description />
+    <PackageLicenseUrl>https://github.com/wangyanjun/incore/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/wangyanjun/incore</PackageProjectUrl>
+  </PropertyGroup>
+
+</Project>
