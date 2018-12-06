@@ -8,8 +8,31 @@
     <Version>1.0.1</Version>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+
   <ItemGroup>
     <ProjectReference Include="..\inc.core\inc.core.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="readme.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>readme.md</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="readme.md">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>readme.Designer.cs</LastGenOutput>
+    </None>
   </ItemGroup>
 
 </Project>
