@@ -46,10 +46,13 @@ namespace inc.core.plc
         public bool HasError { get; private set; }
 
         /// <summary>
-        /// 获取或设置原始接收值
+        /// Get raw value
         /// </summary>
         public object RawValue { get; private set; }
 
+        /// <summary>
+        /// Get last error
+        /// </summary>
         public string LastError { get; private set; }
 
         public bool? ValueAsBoolean
