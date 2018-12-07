@@ -710,7 +710,7 @@ namespace inc.protocols.finsnet.udp
             {
                 if (result.CheckNotNull(decoder.Data, SR.DecodeError))
                 {
-                    decoder.Data.SwapHighLow();
+                    decoder.Data.SwapEvenOdd();
                     result.Content = decoder.Data;
                 }
             });

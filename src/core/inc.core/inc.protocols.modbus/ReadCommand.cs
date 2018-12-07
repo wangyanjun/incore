@@ -1,4 +1,6 @@
-﻿namespace inc.protocols.modbus
+﻿using inc.core;
+
+namespace inc.protocols.modbus
 {
     /// <summary>
     /// Class represents a modbus read command.
@@ -8,7 +10,7 @@
         /// <summary>
         /// Get or set function code
         /// </summary>
-        public ModbusFunctionCode Code { get; set; } = ModbusFunctionCode.ReadCoils;
+        public ModbusFunctionCode FunctionCode { get; set; } = ModbusFunctionCode.ReadCoils;
 
         /// <summary>
         /// Get or set the starting address
@@ -30,10 +32,11 @@
             fixed (byte* p0 = result)
             {
                 byte* p = p0;
-                *p++ = (byte)Code;
+                *p++ = (byte)FunctionCode;
                 ushort* up = (ushort*)p;
                 *up++ = Address;
                 *up++ = Count;
+                HexHelper.SwapEvenOdd(p, 0, 4);
             }
 
             return result;

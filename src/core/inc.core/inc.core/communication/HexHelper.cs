@@ -3,12 +3,13 @@ using System;
 
 namespace inc.core
 {
-    public static class BinaryHelper
+    public static class HexHelper
     {
-        public static unsafe void SwapHighLow(byte* p, int index, int count)
+        public static unsafe void SwapEvenOdd(byte* p, int index, int count)
         {
             byte mid = 0;
-            for (int i = 0; i < count - 1; i += 2)
+            int end = index + count - 1;
+            for (int i = index; i < end; i += 2)
             {
                 mid = p[i];
                 p[i] = p[i + 1];
@@ -16,15 +17,17 @@ namespace inc.core
             }
         }
 
-        public static unsafe void SwapHighLow(this byte[] content, int index, int count)
+       
+
+        public static unsafe void SwapEvenOdd(this byte[] content, int index, int count)
         {
             fixed (byte* p = content)
             {
-                SwapHighLow(p, index, count);
+                SwapEvenOdd(p, index, count);
             }
         }
 
-        public static unsafe void SwapHighLow(this byte[] content) => SwapHighLow(content, 0, content.Length);
+        public static unsafe void SwapEvenOdd(this byte[] content) => SwapEvenOdd(content, 0, content.Length);
 
         public static unsafe T[] GetArray<T>(this byte[] content, int size, Func<IntPtr, T> converter)
          where T : struct

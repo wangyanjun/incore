@@ -53,7 +53,7 @@ namespace inc.protocols.finsnet
                     EndCode = *((ushort*)p0);
                     Data = new byte[content.Length - 2];
                     Array.Copy(content, 2, Data, 0, Data.Length);
-                    Data.SwapHighLow();
+                    Data.SwapEvenOdd();
                 }
             }
 
