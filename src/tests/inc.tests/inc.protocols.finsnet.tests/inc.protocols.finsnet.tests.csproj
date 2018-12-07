@@ -55,6 +55,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FinsnetAddressTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -62,6 +63,16 @@
   </ItemGroup>
   <ItemGroup>
     <Analyzer Include="..\packages\xunit.analyzers.0.10.0\analyzers\dotnet\cs\xunit.analyzers.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\core\inc.core\inc.core\inc.core.csproj">
+      <Project>{6f0aacff-67f0-4af0-a27b-6229259354f3}</Project>
+      <Name>inc.core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\core\inc.core\inc.protocols.finsnet\inc.protocols.finsnet.csproj">
+      <Project>{bd3570f3-ad2f-4658-bc8a-1a10b7efddaf}</Project>
+      <Name>inc.protocols.finsnet</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -39,6 +39,8 @@ namespace inc.protocols.finsnet.udp
 
         public override core.plc.ProtocolFamily ProtocolFamily => core.plc.ProtocolFamily.FinsNet;
 
+        public override IAddress AddressMapping { get; } = new FinsnetAddress();
+
         public OmronUDPFinsNetCommunicator()
         {
         }

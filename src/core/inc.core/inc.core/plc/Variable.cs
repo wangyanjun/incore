@@ -7,13 +7,41 @@ namespace inc.core.plc
     /// </summary>
     public class Variable
     {
+        private IAddress _address;
+
         public IPLCCommunicator Communicator { get; set; }
 
-        public int MainAddress { get; set; }
+        /// <summary>
+        /// Get address
+        /// </summary>
+        public IAddress Address
+        {
+            get
+            {
+                var comm = Communicator ?? PLC.Communicator;
+                if (_address == null && comm != null)
+                {
+                    _address = comm.AddressMapping?.Copy;
+                    if (_address != null)
+                    {
+                        _address.Parse(Item.ReadAddress);
+                    }
+                }
 
-        public int? SubAddress { get; set; }
+                return _address;
+            }
 
-        public FinsMemoryArea MemoryArea { get; set; } = FinsMemoryArea.NotComputed;
+            protected set
+            {
+                _address = value;
+            }
+        }
+
+        //public int MainAddress { get; set; }
+
+        //public int? SubAddress { get; set; }
+
+        //public FinsMemoryArea MemoryArea { get; set; } = FinsMemoryArea.NotComputed;
 
         /// <summary>
         /// 获取值是否超过规格

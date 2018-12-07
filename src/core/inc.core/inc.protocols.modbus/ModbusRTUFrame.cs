@@ -3,6 +3,9 @@ using System;
 
 namespace inc.protocols.modbus
 {
+    /// <summary>
+    /// Class represent for modbus rtu frame
+    /// </summary>
     public class ModbusRTUFrame : IEncoder
     {
         private static readonly CRC16 s_crc = new CRC16();
@@ -27,8 +30,15 @@ namespace inc.protocols.modbus
         /// </summary>
         public byte[] Content { get; set; }
 
+        /// <summary>
+        /// Construct modbus rtu frame
+        /// </summary>
         public ModbusRTUFrame() { }
 
+        /// <summary>
+        /// Construct modbus rtu frame
+        /// </summary>
+        /// <param name="data">data</param>
         public ModbusRTUFrame(IEncoder data)
         {
             Content = data.Encode();
@@ -40,8 +50,9 @@ namespace inc.protocols.modbus
         /// <returns>Encoded data</returns>
         public unsafe byte[] Encode()
         {
+            const int headerLength = 3;
             var dataLength = Content?.Length ?? 0;
-            byte[] result = new byte[3 + dataLength];
+            byte[] result = new byte[headerLength + dataLength];
             fixed (byte* p0 = result)
             {
                 byte* p = p0;
@@ -54,6 +65,7 @@ namespace inc.protocols.modbus
 
                 p += dataLength;
                 *((ushort*)p) = CRC;
+                HexHelper.SwapEvenOdd(p, 2);
             }
 
             return result;

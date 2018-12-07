@@ -10,7 +10,7 @@ namespace inc.protocols.modbus.tests
             var command = new ReadCommand()
             {
                 Address = 0x12,
-                FunctionCode = ModbusFunctionCode.ReadCoils,
+                FunctionCode = ModbusFunction.ReadCoils,
                 Count = 2
             };
 

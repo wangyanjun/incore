@@ -3,8 +3,17 @@ using System;
 
 namespace inc.core
 {
+    /// <summary>
+    /// The helper class for hex data.
+    /// </summary>
     public static class HexHelper
     {
+        /// <summary>
+        /// Swap even odd bytes.
+        /// </summary>
+        /// <param name="p">The pointer of byte array</param>
+        /// <param name="index">start position</param>
+        /// <param name="count">swap count</param>
         public static unsafe void SwapEvenOdd(byte* p, int index, int count)
         {
             byte mid = 0;
@@ -17,7 +26,12 @@ namespace inc.core
             }
         }
 
-       
+        /// <summary>
+        /// Swap even odd bytes.
+        /// </summary>
+        /// <param name="p">The pointer of byte array</param>
+        /// <param name="count">swap count</param>
+        public static unsafe void SwapEvenOdd(byte* p, int count) => SwapEvenOdd(p, 0, count);
 
         public static unsafe void SwapEvenOdd(this byte[] content, int index, int count)
         {
@@ -126,23 +140,6 @@ namespace inc.core
                         throw new NotSupportedException("");
                     }
             }
-        }
-
-        public static int SizeIn(this DataType type, FinsMemoryArea memory)
-        {
-            var bytes = ByteSize(type);
-            var x = 1;
-            switch (memory)
-            {
-                case FinsMemoryArea.DM:
-                    {
-                        x = 2;
-                        break;
-                    }
-            }
-
-            var result = bytes / x;
-            return result;
-        }
+        }       
     }
 }

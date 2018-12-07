@@ -10,7 +10,7 @@ namespace inc.protocols.modbus
         /// <summary>
         /// Get or set function code
         /// </summary>
-        public ModbusFunctionCode FunctionCode { get; set; } = ModbusFunctionCode.ReadCoils;
+        public ModbusFunction FunctionCode { get; set; } = ModbusFunction.ReadCoils;
 
         /// <summary>
         /// Get or set the starting address

@@ -36,7 +36,7 @@ namespace inc.core.plc
                 {
                     Last = variable;
                     First = variable;
-                    MemoryArea = variable.MemoryArea;
+                    Address = variable.Address.Copy;
                 }
                 else
                 {
@@ -64,57 +64,14 @@ namespace inc.core.plc
             if (!IsEmpty)
             {
                 Item.ReadSpanInSeconds = MinRefreshSpan;
-                Item.DataType = DataType.UInt16Bytes;
-                string prefix = "%D";
-                switch (MemoryArea)
-                {
-                    case FinsMemoryArea.WR:
-                        {
-                            Item.DataType = DataType.BooleanBytes;
-                            prefix = "%W";
-                            break;
-                        }
-                }
-
-                Item.ReadAddress = $"{prefix}{First.MainAddress}";
-                Item.WriteAddress = Item.ReadAddress;
-                Item.ArrayLength = Last.MainAddress - First.MainAddress + Last.Item.DataType.SizeIn(MemoryArea);
-                if (Last.Item.ArrayLength.HasValue && Last.Item.ArrayLength.Value > 1)
-                {
-                    Item.ArrayLength += (Last.Item.ArrayLength.Value - 1) * Last.Item.DataType.SizeIn(MemoryArea);
-                }
-
-                switch (MemoryArea)
-                {
-                    case FinsMemoryArea.WR:
-                        {
-                            Item.ReadAddress += ".0";
-                            Item.ArrayLength = Item.ArrayLength.Value * 16;
-                            break;
-                        }
-                }
+                First.Address.Merge(Last.Address, Item, Last.Item.ArrayLength);               
             }
         }
 
         public bool CanMerge(Variable variable)
         {
-            if (variable.MemoryArea == FinsMemoryArea.NotComputed)
-            {
-                FetchAddress(variable);
-            }
-
-            if (IsEmpty)
-            {
-                return true;
-            }
-
-            var result = Last != null && Last.MemoryArea == variable.MemoryArea;
-            if (result)
-            {
-                result = variable.MainAddress - First.MainAddress < MaxAddressRange;
-            }
-
-            return result;
+            return IsEmpty ||
+                variable.Address.CanMerge(First.Address, MaxAddressRange);
         }
 
         public bool NeedMerge(Variable variable)
@@ -136,14 +93,14 @@ namespace inc.core.plc
                     foreach (var v in _variables)
                     {
                         object itemValue = default(object);
-                        var offset = (v.MainAddress - First.MainAddress) * Item.DataType.ByteSize();
+                        var offset = (v.Address.MainAddress - First.Address.MainAddress) * Item.DataType.ByteSize();
                         var p = p0 + offset;
                         switch (v.Item.DataType)
                         {
                             case DataType.Bit:
                                 {
-                                    offset = (v.MainAddress - First.MainAddress) * 16;
-                                    offset += v.SubAddress ?? 0;
+                                    offset = (v.Address.MainAddress - First.Address.MainAddress) * 16;
+                                    offset += v.Address.SubAddress ?? 0;
                                     if (v.Item.ArrayLength.HasValue)
                                     {
                                         var array = new bool[v.Item.ArrayLength.Value];
@@ -288,41 +245,7 @@ namespace inc.core.plc
 
         public static int Compare(Variable a, Variable b)
         {
-            if (a.MemoryArea == FinsMemoryArea.NotComputed)
-            {
-                FetchAddress(a);
-            }
-
-            if (b.MemoryArea == FinsMemoryArea.NotComputed)
-            {
-                FetchAddress(b);
-            }
-
-            var result = a.MemoryArea.CompareTo(b.MemoryArea);
-            if (result == 0)
-            {
-                result = a.MainAddress.CompareTo(b.MainAddress);
-                if (result == 0)
-                {
-                    if (!(!a.SubAddress.HasValue && !b.SubAddress.HasValue))
-                    {
-                        if (a.SubAddress.HasValue) result = 1;
-                        if (b.SubAddress.HasValue) result = -1;
-                        result = a.SubAddress.Value.CompareTo(b.SubAddress.Value);
-                    }
-                }
-            }
-
-            return result;
-        }
-
-        private static void FetchAddress(Variable a)
-        {
-            //var cmd = new FinsWriteCommand();
-            //cmd.FillAddress(a.Item.ReadAddress);
-            //a.MemoryArea = (FinsMemoryArea)cmd.MemoryAreaCode;
-            //a.MainAddress = cmd.Address;
-            //a.SubAddress = cmd.SubAddress;
+            return a.Address.CompareTo(b.Address);
         }
     }
 }

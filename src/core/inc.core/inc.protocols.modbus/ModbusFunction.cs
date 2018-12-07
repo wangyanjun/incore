@@ -3,7 +3,7 @@
     /// <summary>
     /// Command code for modbus.
     /// </summary>
-    public enum ModbusFunctionCode
+    public enum ModbusFunction
     {
         /// <summary>
         /// Read Discrete Inputs

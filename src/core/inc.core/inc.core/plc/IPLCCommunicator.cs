@@ -9,6 +9,11 @@ namespace inc.core.plc
     public interface IPLCCommunicator : IDisposable
     {
         /// <summary>
+        /// Get address mapping
+        /// </summary>
+        IAddress AddressMapping { get; }
+
+        /// <summary>
         /// Get transport media type
         /// </summary>
         TransportMedia TransportMedia { get; }

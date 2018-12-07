@@ -44,6 +44,11 @@ namespace inc.core.plc
         public abstract ProtocolFamily ProtocolFamily { get; }
 
         /// <summary>
+        /// 获取地址映射
+        /// </summary>
+        public abstract IAddress AddressMapping { get; }
+
+        /// <summary>
         /// 析构本对象
         /// </summary>
         ~PLCCommunicator()

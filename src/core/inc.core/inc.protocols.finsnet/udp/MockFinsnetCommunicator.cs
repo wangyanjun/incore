@@ -20,6 +20,8 @@ namespace inc.protocols.finsnet.udp
 
         public override ProtocolFamily ProtocolFamily => ProtocolFamily.FinsNet;
 
+        public override IAddress AddressMapping => throw new NotImplementedException();
+
         /// <summary>
         /// 读取字节数组类型数据
         /// </summary>
