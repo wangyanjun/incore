@@ -6,7 +6,7 @@ namespace inc.plcs.omron
     public class OmronPLCClient : PLCClient
     {
         public OmronPLCClient(string host, int port)
-        {
+        {           
             Communicator = new OmronUDPFinsNetCommunicator()
             {
                 PLCHost = host,

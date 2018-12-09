@@ -3,6 +3,9 @@ using inc.core.plc;
 
 namespace inc.protocols.finsnet
 {
+    /// <summary>
+    /// Finsnet memory area
+    /// </summary>
     public enum FinsMemoryArea
     {
         NotComputed = 0x00,
@@ -12,6 +15,9 @@ namespace inc.protocols.finsnet
         WR = 0X31
     }
 
+    /// <summary>
+    /// FinsMemoryArea helper class
+    /// </summary>
     public static class FinsMemoryAreaHelper
     {
         public static int SizeIn(this DataType type, FinsMemoryArea memory)

@@ -7,6 +7,9 @@ using System.Net.Sockets;
 
 namespace inc.protocols.finsnet.udp
 {
+    /// <summary>
+    /// Udp communicator for omron finsnet plc
+    /// </summary>
     public class OmronUDPFinsNetCommunicator : PLCCommunicator
     {
         private UdpClient _client;
@@ -35,12 +38,24 @@ namespace inc.protocols.finsnet.udp
             }
         }
 
+        /// <summary>
+        /// Get transport media
+        /// </summary>
         public override TransportMedia TransportMedia => TransportMedia.Udp;
 
+        /// <summary>
+        /// Get protocol family
+        /// </summary>
         public override core.plc.ProtocolFamily ProtocolFamily => core.plc.ProtocolFamily.FinsNet;
 
+        /// <summary>
+        /// Get address mapping
+        /// </summary>
         public override IAddress AddressMapping { get; } = new FinsnetAddress();
 
+        /// <summary>
+        /// Construct OmronUDPFinsNetCommunicator
+        /// </summary>
         public OmronUDPFinsNetCommunicator()
         {
         }

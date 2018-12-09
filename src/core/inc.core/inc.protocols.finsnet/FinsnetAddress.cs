@@ -1,9 +1,11 @@
-﻿using inc.core;
-using inc.core.plc;
+﻿using inc.core.plc;
 using System;
 
 namespace inc.protocols.finsnet
 {
+    /// <summary>
+    /// Finsnet address
+    /// </summary>
     public class FinsnetAddress : AddressBase
     {
         /// <summary>
@@ -39,6 +41,10 @@ namespace inc.protocols.finsnet
             return result;
         }
 
+        /// <summary>
+        /// Compute address
+        /// </summary>
+        /// <returns>Address string</returns>
         public override string ComputeAddress()
         {
             var result = string.Empty;
@@ -65,6 +71,10 @@ namespace inc.protocols.finsnet
             return result;
         }
 
+        /// <summary>
+        /// Copy info to destinate address
+        /// </summary>
+        /// <param name="address">destinate address</param>
         public override void CopyTo(IAddress address)
         {
             base.CopyTo(address);
@@ -74,6 +84,11 @@ namespace inc.protocols.finsnet
             }
         }
 
+        /// <summary>
+        /// Compare address
+        /// </summary>
+        /// <param name="other">other address to be compared</param>
+        /// <returns>compare result</returns>
         public override int CompareTo(IAddress other)
         {
             if (!(other is FinsnetAddress x))
@@ -90,6 +105,11 @@ namespace inc.protocols.finsnet
             return result;
         }
 
+        /// <summary>
+        /// Parse address
+        /// </summary>
+        /// <param name="address">address string</param>
+        /// <returns>Is parse success</returns>
         public override bool Parse(string address)
         {
             Address = address;
@@ -192,16 +212,20 @@ namespace inc.protocols.finsnet
             return result;
         }
 
+        /// <summary>
+        /// Merge address
+        /// </summary>
+        /// <param name="to">end address</param>
+        /// <param name="Item">variable item</param>
+        /// <param name="lastArrayLength">array length</param>
         public override void Merge(IAddress to, VariableItem Item, int? lastArrayLength)
         {
             Item.DataType = DataType.UInt16Bytes;
-            string prefix = "%D";
             switch (MemoryArea)
             {
                 case FinsMemoryArea.WR:
                     {
-                        Item.DataType = DataType.BooleanBytes;
-                        prefix = "%W";
+                        Item.DataType = DataType.BooleanBytes;                       
                         break;
                     }
             }

@@ -2,6 +2,9 @@
 
 namespace inc.protocols.finsnet
 {
+    /// <summary>
+    /// Finsnet frame
+    /// </summary>
     public class FinsFrame : FinsOptions
     {
         private const int FixedHeaderLength = 12;
@@ -16,8 +19,16 @@ namespace inc.protocols.finsnet
         /// </summary>
         public byte SRC { get; set; }
 
+        /// <summary>
+        /// Get or set content
+        /// </summary>
         public byte[] Content { get; set; }
 
+        /// <summary>
+        /// Decode content
+        /// </summary>
+        /// <param name="content">content</param>
+        /// <returns>Decode result</returns>
         public bool Decode(byte[] content)
         {
             var result = true;
@@ -49,6 +60,10 @@ namespace inc.protocols.finsnet
             return result;
         }
 
+        /// <summary>
+        /// Encode frame
+        /// </summary>
+        /// <returns>Encode result</returns>
         public byte[] Encode()
         {
             var len = FixedHeaderLength;

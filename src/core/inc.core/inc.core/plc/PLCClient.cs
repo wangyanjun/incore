@@ -12,6 +12,9 @@ namespace inc.core.plc
         private readonly SortedDictionary<string, ReadLoop> _specialCommunicators
             = new SortedDictionary<string, ReadLoop>(StringComparer.OrdinalIgnoreCase);
 
+        private readonly SortedDictionary<string, Variable> _tempVariables 
+            = new SortedDictionary<string, Variable>(StringComparer.OrdinalIgnoreCase);
+
         public const string DefaultName = "DefultPLC";
 
         private const string DefaultThread = "DefaultThread";
@@ -489,6 +492,31 @@ namespace inc.core.plc
 
             variable.ReadSet(r);
             return r;
+        }
+
+        /// <summary>
+        /// Read boolean
+        /// </summary>
+        /// <param name="address">address</param>
+        /// <returns>Read result</returns>
+        public OpResult<bool> ReadBoolean(string address)
+        {
+            return Communicator.ReadBoolean(address);
+        }
+
+        /// <summary>
+        /// Read uint16 data
+        /// </summary>
+        /// <param name="address"></param>
+        /// <returns></returns>
+        public OpResult<ushort> ReadUInt16(string address)
+        {
+            return Communicator.ReadUInt16(address);
+        }
+
+        public OpResult<ushort[]> ReadUInt16Array(string address,int count)
+        {
+            return Communicator.ReadUInt16(address, count);
         }
 
         /// <summary>

@@ -1,5 +1,4 @@
-﻿using inc.core;
-using Xunit;
+﻿using Xunit;
 
 namespace inc.protocols.finsnet.tests
 {
