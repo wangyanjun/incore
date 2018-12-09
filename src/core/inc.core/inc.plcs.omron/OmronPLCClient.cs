@@ -3,6 +3,9 @@ using inc.protocols.finsnet.udp;
 
 namespace inc.plcs.omron
 {
+    /// <summary>
+    /// Omron plc client
+    /// </summary>
     public class OmronPLCClient : PLCClient
     {
         public OmronPLCClient(string host, int port)

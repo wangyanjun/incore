@@ -1,54 +1,57 @@
 ﻿namespace inc.core.plc
 {
     /// <summary>
-    /// 数据类型
+    /// Data type
     /// </summary>
     public enum DataType
     {
         /// <summary>
-        /// 位数据
+        /// Bit data
         /// </summary>
         Bit,
 
         /// <summary>
-        /// 字节
+        /// Byte data
         /// </summary>
         Byte,
 
         /// <summary>
-        /// 
+        /// Unsigned 16 bits represented by bytes
         /// </summary>
         UInt16Bytes,
 
+        /// <summary>
+        /// Booleans represented by bytes.
+        /// </summary>
         BooleanBytes,
 
         /// <summary>
-        /// 16位整型
+        /// Signed 16 bits integer
         /// </summary>
         Int16,
 
         /// <summary>
-        /// 32位整型
+        /// Signed 32 bits integer
         /// </summary>
         Int32,
 
         /// <summary>
-        /// 64位整型
+        /// Signed 64 bits integer
         /// </summary>
         Int64,
 
         /// <summary>
-        /// 16位无符号整型
+        /// Unsigned 16 bits integer
         /// </summary>
         UInt16,
 
         /// <summary>
-        /// 32位无符号整型
+        /// Unsigned 32 bits integer
         /// </summary>
         UInt32,
 
         /// <summary>
-        /// 64位无符号整型
+        /// unsigned 64 bits integer
         /// </summary>
         UInt64,
 

@@ -1,10 +1,16 @@
 ﻿namespace inc.core
 {
+    /// <summary>
+    /// Bytes verify interface
+    /// </summary>
     public interface IBytesVerify
     {
 
     }
 
+    /// <summary>
+    /// Bytes verify interface for uint16 checksum.
+    /// </summary>
     public interface IByteVerifyUInt16 : IBytesVerify
     {
         ushort Compute(byte[] data, int offset, int length);

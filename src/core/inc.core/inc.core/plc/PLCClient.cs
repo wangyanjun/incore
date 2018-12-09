@@ -5,7 +5,7 @@ using System.Threading;
 namespace inc.core.plc
 {
     /// <summary>
-    /// PLC设备
+    /// PLC Client
     /// </summary>
     public class PLCClient : IDisposable
     {
@@ -24,12 +24,12 @@ namespace inc.core.plc
         private readonly object SendLock = new object();
 
         /// <summary>
-        /// 获取是否退出
+        /// Get is disposed
         /// </summary>
         public bool IsDisposed { get; private set; }
 
         /// <summary>
-        /// 获取读取间隔，单位秒
+        /// Get default read span, unit is seconds.
         /// </summary>
         public double ReadSpanInSeconds { get; set; } = 1;
 
@@ -44,17 +44,17 @@ namespace inc.core.plc
         public VariableCollection Variables { get; } = new VariableCollection();
 
         /// <summary>
-        /// 获取或设置是否是默认的设备
+        /// Get or set whether is the default PLC
         /// </summary>
         public bool IsDefault { get; set; } = true;
 
         /// <summary>
-        /// 获取或设置名称
+        /// Get or set the plc client name
         /// </summary>
         public string Name { get; set; } = DefaultName;
 
         /// <summary>
-        /// 开启
+        /// Start read varialbes
         /// </summary>
         public void Start()
         {
@@ -334,10 +334,10 @@ namespace inc.core.plc
         }
 
         /// <summary>
-        /// 强制读取
+        /// Coerse read variable
         /// </summary>
-        /// <param name="variable">要读取的参数</param>
-        /// <returns>读取结果</returns>
+        /// <param name="variable">The variable need read</param>
+        /// <returns>Read result</returns>
         public OpResult ForceRead(Variable variable)
         {
             var op = new OpResult();
@@ -505,6 +505,17 @@ namespace inc.core.plc
         }
 
         /// <summary>
+        /// Read boolean arrat
+        /// </summary>
+        /// <param name="address">starting address</param>
+        /// <param name="count">read count</param>
+        /// <returns>Read result</returns>
+        public OpResult<bool[]> ReadBooleanArrat(string address,int count)
+        {
+            return Communicator.ReadBoolean(address,count);
+        }
+
+        /// <summary>
         /// Read uint16 data
         /// </summary>
         /// <param name="address"></param>
@@ -514,9 +525,99 @@ namespace inc.core.plc
             return Communicator.ReadUInt16(address);
         }
 
+        /// <summary>
+        /// Read UInt16 array
+        /// </summary>
+        /// <param name="address">strating address</param>
+        /// <param name="count">count</param>
+        /// <returns>Read result</returns>
         public OpResult<ushort[]> ReadUInt16Array(string address,int count)
         {
             return Communicator.ReadUInt16(address, count);
+        }
+
+        /// <summary>
+        /// Read uint32 data
+        /// </summary>
+        /// <param name="address"></param>
+        /// <returns></returns>
+        public OpResult<uint> ReadUInt32(string address)
+        {
+            return Communicator.ReadUInt32(address);
+        }
+
+        /// <summary>
+        /// Read UInt32 array
+        /// </summary>
+        /// <param name="address">strating address</param>
+        /// <param name="count">count</param>
+        /// <returns>Read result</returns>
+        public OpResult<uint[]> ReadUInt32Array(string address, int count)
+        {
+            return Communicator.ReadUInt32(address, count);
+        }
+
+        /// <summary>
+        /// Read Int32 data
+        /// </summary>
+        /// <param name="address"></param>
+        /// <returns></returns>
+        public OpResult<int> ReadInt32(string address)
+        {
+            return Communicator.ReadInt32(address);
+        }
+
+        /// <summary>
+        /// Read Int32 array
+        /// </summary>
+        /// <param name="address">strating address</param>
+        /// <param name="count">count</param>
+        /// <returns>Read result</returns>
+        public OpResult<int[]> ReadInt32Array(string address, int count)
+        {
+            return Communicator.ReadInt32(address, count);
+        }
+
+        /// <summary>
+        /// Read float data
+        /// </summary>
+        /// <param name="address"></param>
+        /// <returns></returns>
+        public OpResult<float> ReadSingle(string address)
+        {
+            return Communicator.ReadSingle(address);
+        }
+
+        /// <summary>
+        /// Read float array
+        /// </summary>
+        /// <param name="address">strating address</param>
+        /// <param name="count">count</param>
+        /// <returns>Read result</returns>
+        public OpResult<float[]> ReadSingleArray(string address, int count)
+        {
+            return Communicator.ReadSingle(address, count);
+        }
+
+        /// <summary>
+        /// Read double data
+        /// </summary>
+        /// <param name="address"></param>
+        /// <returns></returns>
+        public OpResult<double> ReadDouble(string address)
+        {
+            return Communicator.ReadDouble(address);
+        }
+
+        /// <summary>
+        /// Read double array
+        /// </summary>
+        /// <param name="address">strating address</param>
+        /// <param name="count">count</param>
+        /// <returns>Read result</returns>
+        public OpResult<double[]> ReadDoubleArray(string address, int count)
+        {
+            return Communicator.ReadDouble(address, count);
         }
 
         /// <summary>

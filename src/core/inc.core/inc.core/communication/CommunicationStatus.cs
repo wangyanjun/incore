@@ -1,37 +1,37 @@
 ﻿namespace inc.core
 {
     /// <summary>
-    /// 通讯状态
+    /// Communication status
     /// </summary>
     public enum CommunicationStatus
     {
         /// <summary>
-        /// 连接已经建立
+        /// Connection connected
         /// </summary>
         Connected,
 
         /// <summary>
-        /// 连接建立中
+        /// Connnection is connecting
         /// </summary>
         Connecting,
 
         /// <summary>
-        /// 未连接
+        /// Not connected
         /// </summary>
         NotConnected,
 
         /// <summary>
-        /// 失败
+        /// Failed
         /// </summary>
         Failed,
 
         /// <summary>
-        /// 断开连接中
+        /// Connection is disconnecting
         /// </summary>
         Disconnecting,
 
         /// <summary>
-        /// 连接已经断开
+        /// Connection is disconnected
         /// </summary>
         Disconnected
     }

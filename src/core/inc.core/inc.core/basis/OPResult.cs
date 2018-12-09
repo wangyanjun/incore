@@ -3,34 +3,34 @@
 namespace inc.core
 {
     /// <summary>
-    /// 操作结果
+    /// Operation result
     /// </summary>
     public class OpResult
     {
         /// <summary>
-        /// 获取空结果
+        /// Get empty result
         /// </summary>
         public static OpResult Empty { get; } = new OpResult();
 
         /// <summary>
-        /// 获取或设置错误码
+        /// Get or set error code
         /// </summary>
         public int ErrorCode { get; set; }
 
         /// <summary>
-        /// 获取或设置消息
+        /// Get or set message
         /// </summary>
         public string Message { get; set; }
 
         /// <summary>
-        /// 获取或设置是否成功
+        /// Get or set wether success
         /// </summary>
         public bool IsSuccess { get; set; } = true;
 
         /// <summary>
-        /// 获取内容
+        /// Get content
         /// </summary>
-        /// <returns>附加的数据内容</returns>
+        /// <returns>Additional content</returns>
         public virtual object GetContent() => null;
 
         /// <summary>

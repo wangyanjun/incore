@@ -4,7 +4,7 @@ using System;
 namespace inc.core.plc
 {
     /// <summary>
-    /// PLC通讯类
+    /// PLC Communication interface
     /// </summary>
     public interface IPLCCommunicator : IDisposable
     {
@@ -29,52 +29,52 @@ namespace inc.core.plc
         IPLCCommunicator Copy { get; }
 
         /// <summary>
-        /// 获取是否连接
+        /// Get whether connected
         /// </summary>
         bool IsConnected { get; }
 
         /// <summary>
-        /// 获取通讯状态
+        /// Get communication status
         /// </summary>
         CommunicationStatus Status { get; }
 
         /// <summary>
-        /// 获取或设置PLC主机地址
+        /// Get or set plc host
         /// </summary>
         string PLCHost { get; set; }
 
         /// <summary>
-        /// 获取或设置端口
+        /// Get or set plc port
         /// </summary>
         int Port { get; set; }
 
         /// <summary>
-        /// 连接服务器
+        /// Connect to plc server
         /// </summary>
-        /// <returns>连接结果</returns>
+        /// <returns>Connect result</returns>
         OpResult ConnectServer();
 
         /// <summary>
-        /// 读取字节数组类型数据
+        /// Read bytes
         /// </summary>
-        /// <param name="address">地址</param>
-        /// <param name="length">数据长度</param>
-        /// <returns>读取结果</returns>
+        /// <param name="address">Starting address</param>
+        /// <param name="length">Data length</param>
+        /// <returns>Read result</returns>
         OpResult<byte[]> Read(string address, ushort length);
 
         /// <summary>
-        /// 读取Int16类型数据
+        /// Read Int16 data
         /// </summary>
-        /// <param name="address">地址</param>
-        /// <returns>读取结果</returns>
+        /// <param name="address">Starting address</param>
+        /// <returns>Read result</returns>
         OpResult<short> ReadInt16(string address);
 
         /// <summary>
-        /// 读取Int16类型数据
+        /// Read int 16 array
         /// </summary>
-        /// <param name="address">地址</param>
-        /// <param name="count">读取的个数</param>
-        /// <returns>读取结果</returns>
+        /// <param name="address">Starting address</param>
+        /// <param name="count">Read count</param>
+        /// <returns>Read result</returns>
         OpResult<short[]> ReadInt16(string address, int count);
 
         /// <summary>

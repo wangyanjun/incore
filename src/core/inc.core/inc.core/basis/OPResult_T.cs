@@ -1,34 +1,34 @@
 ﻿namespace inc.core
 {
     /// <summary>
-    /// 操作结果
+    /// Operation result
     /// </summary>
-    /// <typeparam name="T">数据类型</typeparam>
+    /// <typeparam name="T">Content data type</typeparam>
     public class OpResult<T> : OpResult
     {
         /// <summary>
-        /// 获取或设置内容
+        /// Get or set content
         /// </summary>
         public T Content { get; set; }
 
         /// <summary>
-        /// 构造OpResult
+        /// Construct OpResult
         /// </summary>
         public OpResult() { }
 
         /// <summary>
-        /// 构造OpResult
+        /// Construct OpResult
         /// </summary>
-        /// <param name="content">数据</param>
+        /// <param name="content">content data</param>
         public OpResult(T content)
         {
             Content = content;
         }
 
         /// <summary>
-        /// 获取内容
+        /// Get content
         /// </summary>
-        /// <returns>附加的数据内容</returns>
+        /// <returns>Additional content data</returns>
         public override object GetContent() => IsSuccess ? Content : default(object);
     }
 }
