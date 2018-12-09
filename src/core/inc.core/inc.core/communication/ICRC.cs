@@ -16,6 +16,9 @@
         ushort Compute(byte[] data, int offset, int length);
     }
 
+    /// <summary>
+    /// CRC16 class
+    /// </summary>
     public class CRC16 : IByteVerifyUInt16
     {
         private static readonly ushort[] s_table = {
