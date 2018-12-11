@@ -2,6 +2,9 @@
 
 namespace inc.protocols.finsnet
 {
+    /// <summary>
+    /// Finsnet options
+    /// </summary>
     public class FinsOptions
     {
         public byte ICF { get; set; } = 0x80;
@@ -13,26 +16,33 @@ namespace inc.protocols.finsnet
         public byte DNA { get; set; }
 
         /// <summary>
-        /// 获取或设置PLC地址最后一位
+        /// Get or set last byte of PLC host address
         /// </summary>
         public byte DA1 { get; set; }
 
         /// <summary>
-        /// 获取或设置PLC单元号，一般为0
+        /// Get or set PLC unit no.
         /// </summary>
         public byte DA2 { get; set; }
 
         public byte SNA { get; set; }
 
         /// <summary>
-        /// 获取或设置PC地址最后一位
+        /// Get or set last byte of PC address
         /// </summary>
         public byte SA1 { get; set; }
 
         public byte SA2 { get; set; }
 
+        /// <summary>
+        /// Get or set service id
+        /// </summary>
         public byte SID { get; set; }
 
+        /// <summary>
+        /// Copy info to destinate
+        /// </summary>
+        /// <param name="destinate">Destinate</param>
         public virtual void CopyTo(FinsOptions destinate)
         {
             if (destinate == null)

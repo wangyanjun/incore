@@ -3,25 +3,51 @@ using System;
 
 namespace inc.protocols.finsnet.udp
 {
+    /// <summary>
+    /// Class represent finsnet write command
+    /// </summary>
     public class FinsWriteCommand : FinsCommand,
          IAddressableEncoder
     {
+        /// <summary>
+        /// Get or set memory area code
+        /// </summary>
         public byte MemoryAreaCode { get; set; }
 
+        /// <summary>
+        /// Get or set starting address
+        /// </summary>
         public ushort Address { get; set; }
 
+        /// <summary>
+        /// Get or set sub address
+        /// </summary>
         public byte SubAddress { get; set; }
 
+        /// <summary>
+        /// Get or set write count
+        /// </summary>
         public ushort Length { get; set; } = 1;
 
+        /// <summary>
+        /// Get or set write data
+        /// </summary>
         public byte[] Data { get; set; } = new byte[0];
 
+        /// <summary>
+        /// Set boolean data
+        /// </summary>
+        /// <param name="value">data</param>
         public void SetData(bool value)
         {
             Data = new byte[1];
             Data[0] = value ? (byte)0x01 : (byte)0x00;
         }
 
+        /// <summary>
+        /// Encode this command
+        /// </summary>
+        /// <returns>Encode result</returns>
         public unsafe byte[] Encode()
         {
             var result = new byte[6 + Data.Length];

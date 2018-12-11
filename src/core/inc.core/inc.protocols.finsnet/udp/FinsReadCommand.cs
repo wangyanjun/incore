@@ -3,17 +3,36 @@ using System;
 
 namespace inc.protocols.finsnet.udp
 {
+    /// <summary>
+    /// Class represent finsnet read command
+    /// </summary>
     public class FinsReadCommand : FinsCommand,
              IAddressableEncoder
     {
+        /// <summary>
+        /// Get or set memory area code
+        /// </summary>
         public byte MemoryAreaCode { get; set; }
 
+        /// <summary>
+        /// Get or set starting address
+        /// </summary>
         public ushort Address { get; set; }
 
+        /// <summary>
+        /// Get or set sub address. this address is for bits.
+        /// </summary>
         public byte SubAddress { get; set; }
-
+        
+        /// <summary>
+        /// Get or set read count
+        /// </summary>
         public ushort Length { get; set; } = 1;
 
+        /// <summary>
+        /// Encode this command
+        /// </summary>
+        /// <returns>Encode result</returns>
         public unsafe byte[] Encode()
         {
             var result = new byte[6];

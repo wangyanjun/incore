@@ -19,7 +19,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "inc.protocols.ethernetip", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "inc.protocols.finsnet", "inc.protocols.finsnet\inc.protocols.finsnet.csproj", "{AC456AAC-E19A-4E0B-87FC-D42757881FDB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "inc.protocols.cip", "inc.protocols.cip\inc.protocols.cip.csproj", "{C6A0047B-2BC1-4CA9-840D-D63E4DF5DE3A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "inc.protocols.cip", "inc.protocols.cip\inc.protocols.cip.csproj", "{C6A0047B-2BC1-4CA9-840D-D63E4DF5DE3A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

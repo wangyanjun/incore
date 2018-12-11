@@ -2,6 +2,9 @@
 
 namespace inc.protocols.finsnet
 {
+    /// <summary>
+    /// Finsnet command
+    /// </summary>
     public class FinsCommand
     {
         public unsafe bool? GetBoolean(byte[] content)

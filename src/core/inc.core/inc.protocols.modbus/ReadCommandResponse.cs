@@ -3,6 +3,9 @@ using System;
 
 namespace inc.protocols.modbus
 {
+    /// <summary>
+    /// Class represent read command response for modbus.
+    /// </summary>
     public class ReadCommandResponse:IDecoder
     {
         /// <summary>
@@ -33,7 +36,7 @@ namespace inc.protocols.modbus
                 FunctionCode = (ModbusFunction)data[0];
                 BytesCount = data[1];
                 Content = new byte[data.Length - 2];
-                if(Content.Length > 0)
+                if (Content.Length > 0)
                 {
                     Array.Copy(data, 2, Content, 0, Content.Length);
                 }
