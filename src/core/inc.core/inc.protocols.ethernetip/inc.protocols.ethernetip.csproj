@@ -7,11 +7,12 @@
     <PackageLicenseUrl>https://github.com/wangyanjun/incore/blob/master/LICENSE</PackageLicenseUrl>
     <PackageProjectUrl>https://github.com/wangyanjun/incore</PackageProjectUrl>
     <Version>1.0.1</Version>
-    <PackageTags>plc,protocol,ethernet/ip,eip</PackageTags>
+    <PackageTags>plc,protocol,ethernet/ip,eip,cip</PackageTags>
   </PropertyGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\inc.core\inc.core.csproj" />
+    <ProjectReference Include="..\inc.protocols.cip\inc.protocols.cip.csproj" />
   </ItemGroup>
 
 </Project>

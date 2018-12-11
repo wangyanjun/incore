@@ -19,6 +19,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "inc.protocols.ethernetip", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "inc.protocols.finsnet", "inc.protocols.finsnet\inc.protocols.finsnet.csproj", "{AC456AAC-E19A-4E0B-87FC-D42757881FDB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "inc.protocols.cip", "inc.protocols.cip\inc.protocols.cip.csproj", "{C6A0047B-2BC1-4CA9-840D-D63E4DF5DE3A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -49,6 +51,10 @@ Global
 		{AC456AAC-E19A-4E0B-87FC-D42757881FDB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AC456AAC-E19A-4E0B-87FC-D42757881FDB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AC456AAC-E19A-4E0B-87FC-D42757881FDB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C6A0047B-2BC1-4CA9-840D-D63E4DF5DE3A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C6A0047B-2BC1-4CA9-840D-D63E4DF5DE3A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C6A0047B-2BC1-4CA9-840D-D63E4DF5DE3A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C6A0047B-2BC1-4CA9-840D-D63E4DF5DE3A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -59,6 +65,7 @@ Global
 		{B11C29A7-5D95-4417-8FF1-35B209635971} = {BDEC20F6-730B-49E2-ADF4-1A0566D91C9E}
 		{6E656C67-0840-4FF8-89E5-F97CDFBA804B} = {BDEC20F6-730B-49E2-ADF4-1A0566D91C9E}
 		{AC456AAC-E19A-4E0B-87FC-D42757881FDB} = {BDEC20F6-730B-49E2-ADF4-1A0566D91C9E}
+		{C6A0047B-2BC1-4CA9-840D-D63E4DF5DE3A} = {BDEC20F6-730B-49E2-ADF4-1A0566D91C9E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F40A5782-0217-430B-9CD6-74959ECE0B5E}
