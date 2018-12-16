@@ -3,39 +3,39 @@
 namespace inc.protocols.modbus
 {
     /// <summary>
-    /// Class represents a modbus read command.
+    /// Class represent write command for modbus
     /// </summary>
-    public class ReadCommand : IEncoder
+    public class WriteCommand : IEncoder
     {
         /// <summary>
-        /// Get or set function code
+        /// Get or set function code.
         /// </summary>
-        public ModbusFunction FunctionCode { get; set; } = ModbusFunction.ReadCoils;
+        public ModbusFunction Function { get; set; } = ModbusFunction.WriteSingleCoil;
 
         /// <summary>
-        /// Get or set the starting address
+        /// Get or set starting address
         /// </summary>
         public ushort Address { get; set; }
 
         /// <summary>
-        /// Get or set the quantity
+        /// Get or set output value
         /// </summary>
-        public ushort Count { get; set; }
+        public ushort OutputValue { get; set; }
 
         /// <summary>
-        /// Encode command.
+        /// Encode this command
         /// </summary>
-        /// <returns>Result package</returns>
+        /// <returns>Encode result</returns>
         public unsafe byte[] Encode()
         {
             byte[] result = new byte[5];
             fixed (byte* p0 = result)
             {
                 byte* p = p0;
-                *p++ = (byte)FunctionCode;
+                *p++ = (byte)Function;
                 ushort* up = (ushort*)p;
                 *up++ = Address;
-                *up++ = Count;
+                *up++ = OutputValue;
                 HexHelper.SwapEvenOdd(p, 0, 4);
             }
 
