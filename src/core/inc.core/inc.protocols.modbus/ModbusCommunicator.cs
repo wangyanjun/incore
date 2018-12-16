@@ -10,7 +10,7 @@ namespace inc.protocols.modbus
 
         public override ProtocolFamily ProtocolFamily => ProtocolFamily.Modbus;
 
-        public override IAddress AddressMapping => throw new System.NotImplementedException();
+        public override IAddress AddressMapping => new ModbusAddress();
 
         public override OpResult<byte[]> Read(string address, ushort length)
         {
@@ -218,6 +218,9 @@ namespace inc.protocols.modbus
         }
     }
 
+    /// <summary>
+    /// Modbus tcp communicator
+    /// </summary>
     public class ModbusTcpCommunicator : ModbusCommunicator
     {
         /// <summary>
@@ -232,6 +235,9 @@ namespace inc.protocols.modbus
             }
         }
 
+        /// <summary>
+        /// Get transport media
+        /// </summary>
         public override TransportMedia TransportMedia => TransportMedia.Tcp;
     }
 }
